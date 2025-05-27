@@ -1,5 +1,7 @@
 -------------- Set-2: PostgreSQL Basic Interview Query ------------------------------------------ 
 
+ https://singhak.in/how-to-extract-year-and-month-from-date-in-postgresql/
+
 -- 11). Get all employee detail from EmployeeDetail table whose "FirstName" not start 
 						-- with any single character between 'a-p' 
 
