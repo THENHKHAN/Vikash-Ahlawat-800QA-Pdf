@@ -10,8 +10,8 @@
 department	    dept_wise_sal
 Finance			550000.00
 Payroll			500000.00
-IT				1600000.00
-HR				1010000.00
+IT			1600000.00
+HR			1010000.00
 */
 	
 
@@ -60,8 +60,8 @@ IT	1600000.00
 /*
 IT		1600000.00
 HR		1010000.00
-Finance	550000.00
-Payroll	500000.00
+Finance	        550000.00
+Payroll	        500000.00
 */
 	
 
@@ -73,8 +73,8 @@ Payroll	500000.00
 
 Finance			1		550000.00
 Payroll			1		500000.00
-IT			    2		1600000.00
-HR				2		1010000.00
+IT		        2		1600000.00
+HR			2		1010000.00
 */
 	
 	
@@ -84,33 +84,34 @@ HR				2		1010000.00
 /*
 department           Average Salary  
 Payroll				500000.000000000000
-HR					505000.000000000000
+HR				505000.000000000000
 Finance				550000.000000000000
-IT					800000.000000000000
+IT				800000.000000000000
  */	
 	
 
 -- 47. Get department wise maximum salary from "EmployeeDetail" table order by salary ascending.
 	
 	select department , MAX(salary) "Dept Max Salary"  from employeedetail group by department order by "Dept Max Salary";  
-
+Order of Execution : FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT
+--	EX - GROUP BY department then SELECT will Execute ie. SELECT department, COUNT(*) → select data to return  then ORDER BY
 /*
 department    Dept Max Salary  
 Payroll			500000.00
-HR				530000.00
+HR			530000.00
 Finance			550000.00
-IT				1000000.00
+IT			1000000.00
 */
-	
+
 -- Get department wise minimum salary from "EmployeeDetail" table order by salary ascending.
 	select  department , MIN(salary) as "Dept Min Salary" from employeedetail group by department order by  "Dept Min Salary";	
 	
 /*
 department    Dept Min Salary	
-HR				480000.00
+HR			480000.00
 Payroll			500000.00
 Finance			550000.00
-IT				600000.00	
+IT			600000.00	
 */
 
  USE OF HAVING :
@@ -138,11 +139,11 @@ projectname     Num of Emp in Project
 
 GL Managment		1
 Survey Managment	1
-CLP					1
+CLP			1
 HR Managment		2
-DDS					1
-Task Track			2
-GRS					1
+DDS			1
+Task Track		2
+GRS			1
 	
  NOW need to use filter condition (will use having instead of where since having used on Grouped data) based on given requirent.
  
@@ -154,7 +155,7 @@ GRS					1
  
  projectname     Num of Emp in Project
  HR Managment		2
-Task Track			2
+ Task Track		2
 
 
 /*
@@ -164,4 +165,12 @@ Aggregate functions are calculated before SELECT, but after grouping.
 Aliases are only available in SELECT and ORDER BY, not in WHERE or HAVING.
  */
 
+-- 🔸 HAVING is used only when GROUP BY is used (or when aggregate functions like COUNT(), SUM(), etc. are involved).
+✅ Key Difference:
+| Clause   | Filters | When it runs        | Used with Aggregates   |
+| -------- | ------- | ------------------- | ---------------------- |
+| `WHERE`  | Rows    | **Before** grouping | ❌ Can't use aggregates |
+| `HAVING` | Groups  | **After** grouping  | ✅ Can use aggregates   |
+
+	 
 -----------  SET -5 - Completed : 05/JUNE/2025 at 08:25 AM ----------------------------------
