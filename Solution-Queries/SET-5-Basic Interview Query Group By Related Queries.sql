@@ -18,10 +18,9 @@ HR				1010000.00
 -- 43. Write the query to get the department and department wise total(sum) salary, display it in ascending order according to salary. 
 
 	select department, sum(salary) as "Total Salary" from employeedetail group by department order by "Total Salary" ;
-																	-- you need to use alias in order by since after group by there will no salary column in Grouped data.
-															-- If alias not used then - RDER BY SUM(salary)
-															-- else 	This will fail, because there's no column named salary in the result—salary was aggregated, and the raw salary column no longer exists at this stage.
-
+					-- you need to use alias in order by since after group by there will no salary column in Grouped data.
+					-- If alias not used then - RDER BY SUM(salary)															-- else 	This will fail, because there's no column named salary in the result—salary was aggregated, and the raw salary column no longer exists at this stage.
+-- Aliases can’t be used in the WHERE or GROUP BY clauses — only can be used in ORDER BY and HAVING.
 	/*
 ✅ Summary:
 			Use the full expression: ORDER BY SUM(salary)
